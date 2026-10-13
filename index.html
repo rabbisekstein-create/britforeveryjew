@@ -34,6 +34,12 @@
   .sky{position:absolute;inset:0;width:100%;height:100%}
   .hero .wrap{position:relative;padding-top:28px;padding-bottom:110px}
   .brand{font:500 1.125rem/1.2 var(--serif);letter-spacing:.01em;color:#F4F1E6;text-decoration:none}
+  .topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px}
+  .nav{display:flex;flex-wrap:wrap;gap:4px 22px;font:500 .95rem/1.4 var(--sans)}
+  .nav a{color:#D4D9E4;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+  .nav a:hover{color:#F4F1E6;border-bottom-color:#3A4A70}
+  .nav a[aria-current="page"]{color:#F4F1E6;border-bottom-color:var(--star)}
+  @media (max-width:480px){.nav{gap:4px 14px;font-size:.86rem}}
   .hero h1{font:500 clamp(2.6rem,7vw,5rem)/1.04 var(--serif);letter-spacing:-.015em;margin:96px 0 22px;max-width:13ch}
   .hero p{max-width:34em;font-size:1.15rem;color:#D4D9E4;margin:0 0 34px}
   .verse{font:italic 400 1rem/1.5 var(--serif);color:#AEB8CC;margin-top:64px;max-width:30em}
@@ -104,7 +110,15 @@
 <header class="hero">
   <svg class="sky" id="sky" aria-hidden="true" preserveAspectRatio="xMidYMid slice"></svg>
   <div class="wrap">
-    <a class="brand" href="#">Covenant of Abraham</a>
+    <div class="topbar">
+      <a class="brand" href="index.html">Covenant of Abraham</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="faq.html">Common questions</a>
+        <a href="team.html">Our team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
     <h1>Every Jew deserves a brit.</h1>
     <p>Whatever your age, and however your life has gone until now, it isn't too late. We help Jewish men enter the covenant of Abraham — privately, respectfully, and at your own pace.</p>
     <a class="btn btn-star" href="#contact">Talk to us privately</a>

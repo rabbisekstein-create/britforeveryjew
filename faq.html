@@ -25,6 +25,12 @@
   header{background:var(--night);color:#F4F1E6;padding-top:env(safe-area-inset-top,0px)}
   header .wrap{padding-top:28px;padding-bottom:64px}
   .brand{font:500 1.125rem/1.2 var(--serif);text-decoration:none}
+  .topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 28px}
+  .nav{display:flex;flex-wrap:wrap;gap:4px 22px;font:500 .95rem/1.4 var(--sans)}
+  .nav a{color:#D4D9E4;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+  .nav a:hover{color:#F4F1E6;border-bottom-color:#3A4A70}
+  .nav a[aria-current="page"]{color:#F4F1E6;border-bottom-color:var(--star)}
+  @media (max-width:480px){.nav{gap:4px 14px;font-size:.86rem}}
   h1{font:500 clamp(2.2rem,6vw,3.4rem)/1.08 var(--serif);letter-spacing:-.015em;margin:64px 0 16px}
   header p{color:#D4D9E4;max-width:34em;margin:0}
 
@@ -53,7 +59,15 @@
 
 <header>
   <div class="wrap">
-    <a class="brand" href="index.html">Covenant of Abraham</a>
+    <div class="topbar">
+      <a class="brand" href="index.html">Covenant of Abraham</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="faq.html" aria-current="page">Common questions</a>
+        <a href="team.html">Our team</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
     <h1>Common questions</h1>
     <p>Honest answers to what men ask us most. If your question isn't here, just ask — privately, with no commitment.</p>
   </div>
