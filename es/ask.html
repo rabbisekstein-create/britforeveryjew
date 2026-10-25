@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Haga una pregunta de forma anónima | Covenant of Abraham</title>
+<meta name="description" content="Pregunte lo que quiera sobre brit milá, hatafat dam brit o la recuperación, de forma anónima. No hace falta su nombre.">
+<link rel="alternate" hreflang="en" href="https://britforeveryjew.org/ask.html">
+<link rel="alternate" hreflang="es" href="https://britforeveryjew.org/es/ask.html">
+<link rel="alternate" hreflang="ru" href="https://britforeveryjew.org/ru/ask.html">
+<link rel="alternate" hreflang="he" href="https://britforeveryjew.org/he/ask.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../pages.css">
+<style>
+  .askform{margin:28px 0 8px}
+  .askform .f{margin:0 0 22px}
+  .askform label.t{display:block;font-weight:600;margin:0 0 6px}
+  .askform .h{display:block;color:var(--muted,#55606F);font-size:.92rem;margin:0 0 8px}
+  .askform textarea,.askform input[type=text],.askform select{width:100%;font:inherit;padding:12px 14px;border:1.5px solid #C9CEC4;border-radius:10px;background:#fff;color:inherit}
+  .askform textarea{min-height:170px;resize:vertical}
+  .askform textarea:focus,.askform input:focus,.askform select:focus{outline:3px solid #E3B75A;outline-offset:1px}
+  .askform .opts label{display:block;padding:6px 0}
+  .askform .chk{display:flex;gap:10px;align-items:flex-start}
+  .askform .chk input{margin-top:5px}
+  .askform .err{color:#9B2C2C;font-weight:600;margin:6px 0 0}
+  .askform button{font-family:inherit;font-size:1.02rem;font-weight:600;line-height:1;padding:15px 24px;border:0;border-radius:999px;background:#16233F;color:#F4F1E6;cursor:pointer}
+  .askform button[disabled]{opacity:.6}
+  .askform .hpx{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .askdone{background:#fff;border:1.5px solid #C9CEC4;border-radius:14px;padding:22px}
+  .smallnote{color:var(--muted,#55606F);font-size:.9rem;margin-top:24px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="index.html" lang="en">Covenant of Abraham</a>
+      <nav class="nav" aria-label="Menu">
+        <a href="index.html">Inicio</a>
+        <a href="adult-brit.html">Adultos</a>
+        <a href="for-parents.html">Padres</a>
+        <a href="index.html#contact">Contacto</a>
+        <a href="../index.html" lang="en" hreflang="en">English</a>
+      </nav>
+    </div>
+    <p class="crumb"><a href="index.html">Inicio</a> / Pregunta anónima</p>
+    <h1>Haga una pregunta, de forma anónima</h1>
+    <p class="lede">Algunas preguntas son más fáciles de escribir que de decir. Pregunte lo que quiera sobre brit milá, hatafat dam brit, la recuperación o lo que le corresponde. No hace falta su nombre.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="note">Información general. Cada caso lo decide un rabino.</p>
+    <h2>Cómo funciona</h2>
+    <p>Escriba su pregunta abajo. Por favor, no incluya su nombre ni nada que pueda identificarle.</p><p>Si desea una respuesta privada, deje un correo o un número de WhatsApp. Si no, también está bien: con su permiso, podemos publicar la pregunta y la respuesta en este sitio, sin ningún dato que le identifique, para que otros también aprendan.</p>
+    <form class="askform" id="askform" novalidate>
+      <div class="hpx" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="f">
+        <label class="t" for="q">Su pregunta</label>
+        <span class="h" id="qh">Por favor, no incluya su nombre ni otros datos que le identifiquen.</span>
+        <textarea id="q" name="question" maxlength="3000" required aria-describedby="qh"></textarea>
+        <p class="err" id="qerr" hidden>Por favor, escriba su pregunta.</p>
+      </div>
+      <div class="f">
+        <label class="t" for="age">Su edad (opcional)</label>
+        <select id="age" name="age"><option>Prefiero no decirlo</option><option>Menor de 18</option><option>18–29</option><option>30–49</option><option>50 o más</option></select>
+        <p class="err" id="minor" hidden>Gracias por escribir. Si tiene menos de 18 años, por favor pregunte junto con su padre o su madre, o pídales que nos escriban por WhatsApp.</p>
+      </div>
+      <fieldset class="f" style="border:0;padding:0;margin:0 0 22px">
+        <legend class="t" style="font-weight:600;margin:0 0 6px">¿Desea una respuesta privada?</legend>
+        <div class="opts"><label><input type="radio" name="reply" value="none" checked> No, gracias</label><label><input type="radio" name="reply" value="email"> Por correo</label><label><input type="radio" name="reply" value="whatsapp"> Por WhatsApp</label></div>
+      </fieldset>
+      <div class="f" id="cbox" hidden>
+        <label class="t" for="contact">Correo o número de WhatsApp</label>
+        <span class="h" id="ch">Solo se usa para responderle. Nunca se publica.</span>
+        <input type="text" id="contact" name="contact" maxlength="120" autocomplete="off" aria-describedby="ch">
+        <p class="err" id="cerr" hidden>Agregue su correo o WhatsApp, o elija “No, gracias”.</p>
+      </div>
+      <div class="f chk">
+        <input type="checkbox" id="pub" name="publish" value="yes">
+        <label for="pub">Pueden publicar mi pregunta y la respuesta de forma anónima, sin ningún dato que me identifique.</label>
+      </div>
+      <button type="submit" id="send">Enviar mi pregunta</button>
+    </form>
+    <div class="askdone" id="done" hidden>
+      <h2>Gracias. Su pregunta fue enviada.</h2>
+      <p>Si pidió una respuesta, le responderemos en privado. Si es urgente, también puede escribirnos por WhatsApp.</p>
+      <a class="btn btn-star" href="https://wa.me/19147345364">WhatsApp</a>
+    </div>
+    <p class="smallnote">Este formulario no es para emergencias médicas. Si necesita ayuda médica urgente, llame a su médico o a los servicios de emergencia.</p>
+  </div>
+</main>
+<script>
+(function(){
+const T={"sending": "Enviando…", "send": "Enviar mi pregunta", "err": "Lo sentimos, no se pudo enviar. Por favor, escríbanos por WhatsApp.", "req": "Por favor, escriba su pregunta.", "needc": "Agregue su correo o WhatsApp, o elija “No, gracias”."};
+const LANG='es', ENDPOINT='https://script.google.com/macros/s/AKfycbwtSL9oF1nB6WRKwyZmYPv6NQt9CscyQSFUzLEWMjAKZp-NnurLRgs3wAYX9zDjbrpU/exec', OPENED=Date.now();
+const f=document.getElementById('askform'), age=document.getElementById('age'), cbox=document.getElementById('cbox');
+const minorOpt='Menor de 18';
+const reply=()=>{const c=f.querySelector('[name=reply]:checked');return c?c.value:'none';};
+age.addEventListener('change',()=>{document.getElementById('minor').hidden=age.value!==minorOpt;});
+f.addEventListener('change',e=>{ if(e.target.name==='reply'){cbox.hidden=reply()==='none';} });
+function spamReason(text){
+  if(f.website.value) return 'trap';
+  if(/https?:\/\/|www\.|\[url|<a\s/i.test(text)) return 'link';
+  if(/\b(seo|backlink|web ?design|marketing|crypto|casino|loan|guest post)\b/i.test(text)) return 'sales wording';
+  if(Date.now()-OPENED<4000) return 'sent too fast';
+  return '';
+}
+function dup(text){
+  const k='cov_ask_'+text.slice(0,60); let last=0;
+  try{last=Number(localStorage.getItem(k))||0;localStorage.setItem(k,String(Date.now()));}catch(e){}
+  return Date.now()-last<600000;
+}
+f.addEventListener('submit',e=>{
+  e.preventDefault();
+  const q=f.question.value.trim(); const r=reply(); const c=f.contact.value.trim();
+  document.getElementById('qerr').hidden=!!q;
+  const needC=(r!=='none'&&!c); document.getElementById('cerr').hidden=!needC;
+  if(!q){f.question.focus();return;}
+  if(age.value===minorOpt){document.getElementById('minor').hidden=false;age.focus();return;}
+  if(needC){f.contact.focus();return;}
+  const btn=document.getElementById('send'); btn.disabled=true; btn.textContent=T.sending;
+  const spam=spamReason(q+' '+c);
+  const fields={name:'Anonymous', phone:(r==='whatsapp'?c:''), regarding:'Anonymous question (Covenant of Abraham)',
+    Question:q, Age:age.value, Reply:r, Contact:(r==='none'?'':c), 'May publish':f.publish.checked?'Yes':'No', Language:LANG};
+  const done=()=>{f.hidden=true;document.getElementById('done').hidden=false;window.scrollTo({top:0});};
+  if(spam==='trap'){done();return;}
+  try{
+    const formName=spam?('Anonymous question - POSSIBLE SPAM ('+spam+')'):'Anonymous question - britforeveryjew.org';
+    if(!spam&&dup(q)){done();return;}
+    fetch(ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({form_version:'request_v1',form:formName,page:location.pathname,fields})}).catch(()=>{});
+    if(!spam){
+      fetch('https://lead-alert-4146.twil.io/new-lead',{method:'POST',mode:'no-cors',keepalive:true,
+        body:new URLSearchParams({name:'Anonymous',phone:fields.phone,regarding:'New anonymous question on the organization website'})}).catch(()=>{});
+    }
+    done();
+  }catch(err){btn.disabled=false;btn.textContent=T.send;alert(T.err);}
+});
+})();
+</script>
+
+<footer>
+  <div class="wrap">
+    <span>Covenant of Abraham (El Pacto de Abraham), un proyecto de [Nonprofit legal name]</span>
+    <nav aria-label="Footer"><a href="../index.html" lang="en">English</a><a href="../ru/ask.html" lang="ru">Русский</a><a href="../privacy.html">Privacidad</a></nav>
+  </div>
+</footer>
+
+</body>
+</html>
