@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Haga una pregunta de forma anónima | Covenant of Abraham</title>
-<meta name="description" content="Pregunte lo que quiera sobre brit milá, hatafat dam brit o la recuperación, de forma anónima. No hace falta su nombre.">
+<meta name="description" content="Pregunte lo que quiera sobre brit milá, hatafat dam brit o la recuperación, de forma anónima. Sin nombre, correo ni teléfono. Reciba un código privado para leer nuestra respuesta y contestar.">
 <link rel="canonical" href="https://britforeveryjew.org/es/ask.html">
 <link rel="alternate" hreflang="en" href="https://britforeveryjew.org/ask.html">
 <link rel="alternate" hreflang="es" href="https://britforeveryjew.org/es/ask.html">
@@ -17,24 +17,44 @@
 <style>
   .askform{margin:28px 0 8px}
   .askform .f{margin:0 0 22px}
-  .askform label.t{display:block;font-weight:600;margin:0 0 6px}
+  .askform label.t,.askform legend.t{display:block;font-weight:600;margin:0 0 6px;padding:0}
+  .askform .opt{font-weight:400;color:var(--muted,#55606F)}
   .askform .h{display:block;color:var(--muted,#55606F);font-size:.92rem;margin:0 0 8px}
-  .askform textarea,.askform input[type=text],.askform select{width:100%;font:inherit;padding:12px 14px;border:1.5px solid #C9CEC4;border-radius:10px;background:#fff;color:inherit}
+  .askform .tip{color:var(--muted,#55606F);font-size:.92rem;margin:8px 0 0}
+  .askform textarea,.askform input[type=text],.askform input[type=email],.askform input[type=tel],.askform select{width:100%;font:inherit;padding:12px 14px;border:1.5px solid #C9CEC4;border-radius:10px;background:#fff;color:inherit}
   .askform textarea{min-height:170px;resize:vertical}
+  .askform textarea.short{min-height:90px}
   .askform textarea:focus,.askform input:focus,.askform select:focus{outline:3px solid #E3B75A;outline-offset:1px}
-  .askform .opts label{display:block;padding:6px 0}
+  .askform fieldset{border:0;padding:0;margin:0 0 22px}
+  .askform .opts label{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+  .askform .opts input{margin-top:6px;flex:none}
   .askform .chk{display:flex;gap:10px;align-items:flex-start}
-  .askform .chk input{margin-top:5px}
+  .askform .chk input{margin-top:5px;flex:none}
   .askform .err{color:#9B2C2C;font-weight:600;margin:6px 0 0}
   .askform button{font-family:inherit;font-size:1.02rem;font-weight:600;line-height:1;padding:15px 24px;border:0;border-radius:999px;background:#16233F;color:#F4F1E6;cursor:pointer}
   .askform button[disabled]{opacity:.6}
-  .askform .hpx{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-  .askdone{background:#fff;border:1.5px solid #C9CEC4;border-radius:14px;padding:22px}
+  .hpx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;margin:-1px}
+  .formnote{margin:12px 0 0;max-width:36em}
+  .formnote.err{color:#9B2C2C;font-weight:600}
+  .formnote.ok{color:#2F5D3A;font-weight:600}
+  .promise{background:#fff;border-inline-start:3px solid var(--star,#E3B75A);padding:14px 18px;margin:0 0 22px;font-size:.95rem;max-width:36em}
+  .promise p{margin:0 0 8px}.promise p:last-child{margin:0}
+  .askdone,.panel{background:#fff;border:1.5px solid #C9CEC4;border-radius:14px;padding:22px;margin:0 0 22px}
+  .askdone h2,.panel h2{margin-top:0}
+  .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1.9rem;letter-spacing:.12em;color:var(--night,#16233F);background:var(--paper,#F5F6F2);display:inline-block;padding:10px 20px;border-radius:10px;margin:4px 0 12px}
+  .btn-dark{background:var(--night,#16233F);color:#F4F1E6}
+  .btn-line{border:1.5px solid var(--night,#16233F);color:var(--night,#16233F)}
+  .thread{margin:8px 0 0}
+  .thread .msg{border-radius:12px;padding:14px 18px;margin:14px 0}
+  .thread .you{background:#fff;border:1px solid var(--line,#D9DDD5);margin-inline-end:8%}
+  .thread .us{background:#fff;border-inline-start:3px solid var(--star,#E3B75A);margin-inline-start:8%;box-shadow:0 0 0 1px var(--line,#D9DDD5)}
+  .thread .who{display:block;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--muted,#55606F);margin-bottom:4px}
+  .thread .text{white-space:pre-wrap}
+  .waiting{font-style:italic;color:var(--muted,#55606F)}
   .smallnote{color:var(--muted,#55606F);font-size:.9rem;margin-top:24px}
 </style>
 </head>
 <body>
-
 <header>
   <div class="wrap">
     <div class="topbar">
@@ -43,8 +63,9 @@
         <a href="index.html">Inicio</a>
         <a href="adult-brit.html">Adultos</a>
         <a href="for-parents.html">Padres</a>
+        <a href="ask.html" aria-current="page">Pregunta anónima</a>
         <a href="index.html#contact">Contacto</a>
-        <a href="../index.html" lang="en" hreflang="en">English</a>
+        <a href="../ask.html" lang="en" hreflang="en">English</a>
       </nav>
     </div>
     <p class="crumb"><a href="index.html">Inicio</a> / Pregunta anónima</p>
@@ -57,90 +78,182 @@
   <div class="wrap">
     <p class="note">Información general. Cada caso lo decide un rabino.</p>
     <h2>Cómo funciona</h2>
-    <p>Escriba su pregunta abajo. Por favor, no incluya su nombre ni nada que pueda identificarle.</p><p>Si desea una respuesta privada, deje un correo o un número de WhatsApp. Si no, también está bien: con su permiso, podemos publicar la pregunta y la respuesta en este sitio, sin ningún dato que le identifique, para que otros también aprendan.</p>
+    <p>Escriba su pregunta abajo; puede escribir en español. No necesita dar su nombre, correo electrónico ni número de teléfono. Por favor, no incluya nada que pueda identificarle.</p>
+    <p>La forma más sencilla de recibir una respuesta es con un código privado. Al enviar su pregunta, verá un código. Vuelva en unos días, ingréselo y encontrará nuestra respuesta. Puede contestar y seguir la conversación, todavía sin dar su nombre.</p>
+    <p>Si prefiere, también puede pedir la respuesta por WhatsApp o por correo, o preguntar sin necesidad de respuesta. Con su permiso, podemos publicar la pregunta y la respuesta en este sitio, sin ningún dato que le identifique, para que otros también aprendan.</p>
+
     <form class="askform" id="askform" novalidate>
-      <div class="hpx" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="hpx" aria-hidden="true"><label>Website <input type="text" name="website" id="botcheck" tabindex="-1" autocomplete="off"></label></div>
+
       <div class="f">
         <label class="t" for="q">Su pregunta</label>
         <span class="h" id="qh">Por favor, no incluya su nombre ni otros datos que le identifiquen.</span>
-        <textarea id="q" name="question" maxlength="3000" required aria-describedby="qh"></textarea>
+        <textarea id="q" name="question" maxlength="3000" required aria-describedby="qh" placeholder="Escriba lo que tenga en mente. No hay una forma equivocada de preguntar."></textarea>
         <p class="err" id="qerr" hidden>Por favor, escriba su pregunta.</p>
       </div>
+
       <div class="f">
-        <label class="t" for="age">Su edad (opcional)</label>
+        <label class="t" for="ctx">Algo que nos ayude a entender su situación <span class="opt">(opcional)</span></label>
+        <textarea class="short" id="ctx" name="context" maxlength="1500" placeholder="Por ejemplo: si tuvo un brit de bebé, si lo circuncidaron en un hospital, o si nunca tuvo ninguno de los dos."></textarea>
+      </div>
+
+      <div class="f">
+        <label class="t" for="age">Su edad <span class="opt">(opcional)</span></label>
         <select id="age" name="age"><option>Prefiero no decirlo</option><option>Menor de 18</option><option>18–29</option><option>30–49</option><option>50 o más</option></select>
         <p class="err" id="minor" hidden>Gracias por escribir. Si tiene menos de 18 años, por favor pregunte junto con su padre o su madre, o pídales que nos escriban por WhatsApp.</p>
       </div>
-      <fieldset class="f" style="border:0;padding:0;margin:0 0 22px">
-        <legend class="t" style="font-weight:600;margin:0 0 6px">¿Desea una respuesta privada?</legend>
-        <div class="opts"><label><input type="radio" name="reply" value="none" checked> No, gracias</label><label><input type="radio" name="reply" value="email"> Por correo</label><label><input type="radio" name="reply" value="whatsapp"> Por WhatsApp</label></div>
+
+      <fieldset class="f">
+        <legend class="t">¿Cómo prefiere recibir nuestra respuesta?</legend>
+        <div class="opts">
+          <label><input type="radio" name="reply" value="private code" checked> <span>En este sitio, con un código privado. No hace falta dar datos de contacto, y podemos seguir conversando.</span></label>
+          <label><input type="radio" name="reply" value="whatsapp"> <span>En privado, por WhatsApp</span></label>
+          <label><input type="radio" name="reply" value="email"> <span>En privado, por correo electrónico</span></label>
+          <label><input type="radio" name="reply" value="no reply"> <span>No necesito respuesta</span></label>
+        </div>
       </fieldset>
+
       <div class="f" id="cbox" hidden>
-        <label class="t" for="contact">Correo o número de WhatsApp</label>
+        <label class="t" for="contact" id="clabel">Su número de WhatsApp</label>
         <span class="h" id="ch">Solo se usa para responderle. Nunca se publica.</span>
         <input type="text" id="contact" name="contact" maxlength="120" autocomplete="off" aria-describedby="ch">
-        <p class="err" id="cerr" hidden>Agregue su correo o WhatsApp, o elija “No, gracias”.</p>
+        <p class="tip" id="emailtip" hidden>Si prefiere no usar su correo habitual, puede usar una dirección nueva que no incluya su nombre.</p>
+        <p class="err" id="cerr" hidden>Agregue su número de WhatsApp o su correo, o elija otra opción.</p>
       </div>
+
       <div class="f chk">
         <input type="checkbox" id="pub" name="publish" value="yes">
         <label for="pub">Pueden publicar mi pregunta y la respuesta de forma anónima, sin ningún dato que me identifique.</label>
       </div>
-      <button type="submit" id="send">Enviar mi pregunta</button>
+
+      <div class="promise">
+        <p>Su pregunta es privada. Nunca se compartirá ni se publicará con su nombre, sus datos de contacto ni nada que pueda identificarle. Solo publicamos una pregunta si marcó la casilla de arriba, y después de quitar todo lo que pudiera identificarle.</p>
+        <p>Por favor, no envíe fotos, ni aquí ni por WhatsApp o correo electrónico. Si hace falta ver algo, organizaremos un encuentro en persona, privado y respetuoso.</p>
+      </div>
+
+      <button type="submit" id="send">Enviar mi pregunta en privado</button>
+      <p class="formnote" id="sendnote" aria-live="polite"></p>
     </form>
+
     <div class="askdone" id="done" hidden>
       <h2>Gracias. Su pregunta fue enviada.</h2>
-      <p>Si pidió una respuesta, le responderemos en privado. Si es urgente, también puede escribirnos por WhatsApp.</p>
-      <a class="btn btn-star" href="https://wa.me/19147345364">WhatsApp</a>
+      <p>Hace falta valor para preguntar, y nos alegra que lo haya hecho.</p>
+      <p class="formnote" id="dupnote" hidden>Ya envió esta pregunta hace unos minutos, así que no se envió dos veces.</p>
+      <div id="codebox" hidden>
+        <p>Su código privado es:</p>
+        <p class="code" id="codedisplay"></p>
+        <p><strong>Guarde este código ahora</strong>, por ejemplo con una captura de pantalla. Es la única forma de abrir su conversación. No podemos buscarlo por usted, porque no sabemos quién es.</p>
+        <p>Vuelva en unos días y abra su conversación con este código. Allí encontrará nuestra respuesta, y podrá contestar o agregar detalles si se los pedimos, todavía sin dar su nombre.</p>
+        <p><a class="btn btn-dark" id="openconv" href="conversation.html">Abrir mi conversación</a></p>
+      </div>
+      <p id="thankscontact" hidden>Le responderemos en privado, normalmente en unos pocos días.</p>
+      <p>Si prefiere hablar ahora, puede escribirnos por WhatsApp.</p>
+      <a class="btn btn-line" href="https://wa.me/19147345364">Escribir por WhatsApp</a>
     </div>
+
+    <div class="panel" id="already">
+      <h2>¿Ya preguntó?</h2>
+      <p>Abra su conversación privada con el código que recibió.</p>
+      <a class="btn btn-line" href="conversation.html">Abrir mi conversación</a>
+    </div>
+
     <p class="smallnote">Este formulario no es para emergencias médicas. Si necesita ayuda médica urgente, llame a su médico o a los servicios de emergencia.</p>
+    <p class="smallnote">Nuestros mohalim actúan en calidad religiosa, no como proveedores médicos. Ante cualquier inquietud médica, consulte a su propio médico.</p>
   </div>
 </main>
 <script>
 (function(){
-const T={"sending": "Enviando…", "send": "Enviar mi pregunta", "err": "Lo sentimos, no se pudo enviar. Por favor, escríbanos por WhatsApp.", "req": "Por favor, escriba su pregunta.", "needc": "Agregue su correo o WhatsApp, o elija “No, gracias”."};
-const LANG='es', ENDPOINT='https://script.google.com/macros/s/AKfycbwtSL9oF1nB6WRKwyZmYPv6NQt9CscyQSFUzLEWMjAKZp-NnurLRgs3wAYX9zDjbrpU/exec', OPENED=Date.now();
-const f=document.getElementById('askform'), age=document.getElementById('age'), cbox=document.getElementById('cbox');
-const minorOpt='Menor de 18';
-const reply=()=>{const c=f.querySelector('[name=reply]:checked');return c?c.value:'none';};
-age.addEventListener('change',()=>{document.getElementById('minor').hidden=age.value!==minorOpt;});
-f.addEventListener('change',e=>{ if(e.target.name==='reply'){cbox.hidden=reply()==='none';} });
+var T={"sending": "Enviando…", "btn": "Enviar mi pregunta en privado", "send_err": "Lo sentimos, su pregunta no se envió. Inténtelo de nuevo o escríbanos por WhatsApp.", "q_err": "Por favor, escriba su pregunta.", "c_err": "Agregue su número de WhatsApp o su correo, o elija otra opción.", "lbl_wa": "Su número de WhatsApp", "lbl_email": "Su correo electrónico"};
+var ENDPOINT="https://script.google.com/macros/s/AKfycbxZ3-mL67KkS5928ykDOAW5Jhqx3OHyCXbh4pZlcpamOWOEln2-RlH-qhju93xxMw1l/exec";
+var SITE="britforeveryjew.org", LANG="es", OPENED=Date.now();
+var MINOR="Menor de 18", NOAGE="Prefiero no decirlo";
+var f=document.getElementById("askform"), age=document.getElementById("age"), cbox=document.getElementById("cbox");
+var contact=document.getElementById("contact"), clabel=document.getElementById("clabel"), emailtip=document.getElementById("emailtip");
+var btn=document.getElementById("send"), note=document.getElementById("sendnote");
+function method(){var c=f.querySelector("[name=reply]:checked");return c?c.value:"private code";}
+function update(){
+  var m=method();
+  if(m==="whatsapp"||m==="email"){
+    cbox.hidden=false;
+    clabel.textContent=(m==="whatsapp")?T.lbl_wa:T.lbl_email;
+    contact.type=(m==="email")?"email":"tel";
+    emailtip.hidden=(m!=="email");
+  } else { cbox.hidden=true; contact.value=""; document.getElementById("cerr").hidden=true; }
+}
+f.addEventListener("change",function(e){ if(e.target.name==="reply") update(); });
+age.addEventListener("change",function(){ document.getElementById("minor").hidden=(age.value!==MINOR); });
+update();
+
 function spamReason(text){
-  if(f.website.value) return 'trap';
-  if(/https?:\/\/|www\.|\[url|<a\s/i.test(text)) return 'link';
-  if(/\b(seo|backlink|web ?design|marketing|crypto|casino|loan|guest post)\b/i.test(text)) return 'sales wording';
-  if(Date.now()-OPENED<4000) return 'sent too fast';
-  return '';
+  if(document.getElementById("botcheck").value) return "trap";
+  if(/https?:\/\/|www\.|\[url|<a\s/i.test(text)) return "link";
+  if(/\b(seo|backlink|web ?design|marketing|crypto|casino|loan|guest post)\b/i.test(text)) return "sales wording";
+  if(Date.now()-OPENED<4000) return "sent too fast";
+  return "";
 }
-function dup(text){
-  const k='cov_ask_'+text.slice(0,60); let last=0;
-  try{last=Number(localStorage.getItem(k))||0;localStorage.setItem(k,String(Date.now()));}catch(e){}
-  return Date.now()-last<600000;
+function dupKey(q){return "cov_ask_"+q.slice(0,60);}
+function getDup(q){
+  try{var v=JSON.parse(localStorage.getItem(dupKey(q))||"null");if(v&&Date.now()-v.t<600000)return v;}catch(e){}
+  return null;
 }
-f.addEventListener('submit',e=>{
+function setDup(q,code){try{localStorage.setItem(dupKey(q),JSON.stringify({t:Date.now(),code:code||""}));}catch(e){}}
+
+function showDone(m,code,isDup){
+  f.hidden=true;
+  document.getElementById("already").hidden=true;
+  document.getElementById("done").hidden=false;
+  document.getElementById("dupnote").hidden=!isDup;
+  if(m==="private code"&&code){
+    document.getElementById("codedisplay").textContent=code;
+    document.getElementById("codebox").hidden=false;
+    document.getElementById("openconv").addEventListener("click",function(){
+      try{sessionStorage.setItem("convCode",code);}catch(e){}
+    });
+  } else if(m==="whatsapp"||m==="email"){
+    document.getElementById("thankscontact").hidden=false;
+  }
+  window.scrollTo({top:0});
+}
+function fail(){
+  note.className="formnote err";
+  note.innerHTML=T.send_err+' <a href="https://wa.me/19147345364">WhatsApp</a>';
+  btn.disabled=false; btn.textContent=T.btn;
+}
+
+f.addEventListener("submit",function(e){
   e.preventDefault();
-  const q=f.question.value.trim(); const r=reply(); const c=f.contact.value.trim();
-  document.getElementById('qerr').hidden=!!q;
-  const needC=(r!=='none'&&!c); document.getElementById('cerr').hidden=!needC;
+  note.className="formnote"; note.textContent="";
+  var q=f.question.value.trim(), ctx=f.context.value.trim(), m=method(), c=contact.value.trim();
+  document.getElementById("qerr").hidden=!!q;
+  var needC=((m==="whatsapp"||m==="email")&&!c);
+  document.getElementById("cerr").hidden=!needC;
   if(!q){f.question.focus();return;}
-  if(age.value===minorOpt){document.getElementById('minor').hidden=false;age.focus();return;}
-  if(needC){f.contact.focus();return;}
-  const btn=document.getElementById('send'); btn.disabled=true; btn.textContent=T.sending;
-  const spam=spamReason(q+' '+c);
-  const fields={name:'Anonymous', phone:(r==='whatsapp'?c:''), regarding:'Anonymous question (Covenant of Abraham)',
-    Question:q, Age:age.value, Reply:r, Contact:(r==='none'?'':c), 'May publish':f.publish.checked?'Yes':'No', Language:LANG};
-  const done=()=>{f.hidden=true;document.getElementById('done').hidden=false;window.scrollTo({top:0});};
-  if(spam==='trap'){done();return;}
-  try{
-    const formName=spam?('Anonymous question - POSSIBLE SPAM ('+spam+')'):'Anonymous question - britforeveryjew.org';
-    if(!spam&&dup(q)){done();return;}
-    fetch(ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body:JSON.stringify({form_version:'request_v1',form:formName,page:location.pathname,fields})}).catch(()=>{});
-    if(!spam){
-      fetch('https://lead-alert-4146.twil.io/new-lead',{method:'POST',mode:'no-cors',keepalive:true,
-        body:new URLSearchParams({name:'Anonymous',phone:fields.phone,regarding:'New anonymous question on the organization website'})}).catch(()=>{});
-    }
-    done();
-  }catch(err){btn.disabled=false;btn.textContent=T.send;alert(T.err);}
+  if(age.value===MINOR){document.getElementById("minor").hidden=false;age.focus();return;}
+  if(needC){contact.focus();return;}
+
+  var spam=spamReason(q+" "+ctx+" "+c);
+  if(spam==="trap"){showDone(m,"",false);return;}
+  if(!spam){var d=getDup(q); if(d){showDone(m,d.code,true);return;}}
+
+  // The site label goes into the context field, so it shows in the sheet and the email alert
+  var lines=[];
+  if(ctx) lines.push(ctx);
+  if(age.value!==NOAGE) lines.push("Age: "+age.value);
+  lines.push("[Sent from britforeveryjew.org, "+LANG.toUpperCase()+" page]");
+  if(spam) lines.push("[POSSIBLE SPAM: "+spam+"]");
+
+  var data={action:"ask", question:q, context:lines.join("\n"), reply_method:m,
+    contact:(m==="whatsapp"||m==="email")?c:"", may_publish:document.getElementById("pub").checked,
+    botcheck:"", lang:LANG, site:SITE, source:SITE, alert:"email"};
+  btn.disabled=true; btn.textContent=T.sending;
+  fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)})
+    .then(function(r){return r.json();})
+    .then(function(res){
+      if(!res||!res.ok) throw new Error("fail");
+      setDup(q,res.code);
+      showDone(m,res.code,false);
+    })
+    .catch(fail);
 });
 })();
 </script>
@@ -148,7 +261,7 @@ f.addEventListener('submit',e=>{
 <footer>
   <div class="wrap">
     <span>Covenant of Abraham (El Pacto de Abraham), un proyecto de [Nonprofit legal name]</span>
-    <nav aria-label="Footer"><a href="../index.html" lang="en">English</a><a href="../ru/ask.html" lang="ru">Русский</a><a href="../privacy.html">Privacidad</a></nav>
+    <nav aria-label="Footer"><a href="../ask.html" lang="en">English</a><a href="../ru/ask.html" lang="ru">Русский</a><a href="../he/ask.html" lang="he">עברית</a><a href="../privacy.html">Privacidad</a></nav>
   </div>
 </footer>
 
